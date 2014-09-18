@@ -10,7 +10,6 @@ Take a record and pick only the keys you want to pass
 ```
 <match test.**>
   type key_picker
-
   keys           foo, baz
   add_tag_prefix picked.
 </match>

@@ -4,12 +4,10 @@ module Fluent
   class KeyPickerOutput < Output
     include Fluent::HandleTagNameMixin
 
-    Fluent::Plugin.register_output('filter_keys', self)
+    Fluent::Plugin.register_output('key_picker', self)
 
     config_param :keys, :string, :default => nil
     config_param :add_tag_and_reemit, :bool, :default => false
-
-    DISCARD_TAG = 'discarded'
 
     def configure(conf)
       super

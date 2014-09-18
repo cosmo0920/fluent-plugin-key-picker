@@ -38,6 +38,14 @@ class KeyPickerOutputTest < Test::Unit::TestCase
         add_tag_prefix picked.
       ])
     end
+
+    #0 length keys
+    assert_raise(Fluent::ConfigError) do
+      create_driver(%[
+        keys
+        add_tag_prefix picked.
+      ])
+    end
   end
 
   def test_filter_record

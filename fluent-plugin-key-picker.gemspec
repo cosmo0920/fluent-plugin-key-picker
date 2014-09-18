@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name          = 'fluent-plugin-key-picker'
-  gem.version       = '0.0.1'
+  gem.version       = '0.0.2'
   gem.authors       = ['Carlos Donderis']
   gem.email         = ['cdonderis@gmail.com']
   gem.homepage      = 'http://github.com/cads/fluent-plugin-key-picker'

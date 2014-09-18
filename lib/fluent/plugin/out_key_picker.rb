@@ -21,7 +21,7 @@ module Fluent
         raise ConfigError, "out_key_picker: At least one of remove_tag_prefix/remove_tag_suffix/add_tag_prefix/add_tag_suffix is required to be set."
       end
 
-      unless keys && !keys.nil?
+      unless keys && keys.length > 1
         raise ConfigError, "keys: You need to specify the keys you want to pick."
       end
 

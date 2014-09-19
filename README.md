@@ -1,4 +1,4 @@
-# fluent-plugin-time_parser, a plugin for [Fluentd](http://fluentd.org)
+# fluent-plugin-key-picker, a plugin for [Fluentd](http://fluentd.org)
 
 ## Component
 KeyPickerOutput

@@ -1,6 +1,9 @@
-require 'byebug'
 # -*- encoding: utf-8 -*-
-require '../test_helper'
+begin
+  require 'byebug'
+rescue LoadError
+end
+require_relative '../test_helper'
 
 class KeyPickerOutputTest < Test::Unit::TestCase
 

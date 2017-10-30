@@ -16,6 +16,7 @@ unless ENV.has_key?('VERBOSE')
 end
 
 require 'fluent/plugin/out_key_picker'
+require 'fluent/plugin/filter_key_picker'
 
 class Test::Unit::TestCase
 end

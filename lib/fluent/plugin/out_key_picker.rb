@@ -1,8 +1,10 @@
 # coding: utf-8
+require 'fluent/plugin/key_picker_support'
 
 module Fluent
   class KeyPickerOutput < Output
     include Fluent::HandleTagNameMixin
+    include Fluent::KeyPickerSupport
 
     Fluent::Plugin.register_output('key_picker', self)
 
@@ -46,11 +48,7 @@ module Fluent
     end
 
     def filter_record(tag, time, record)
-      begin
-        record.keep_if{|key, value| @keys.include?(key.to_s)}
-      rescue ArgumentError => error
-        $log.warn("out_key_picker: #{error.message}")
-      end
+      record = pick_key(record, self)
       super(tag, time, record)
     end
   end

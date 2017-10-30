@@ -1,11 +1,52 @@
 # fluent-plugin-key-picker, a plugin for [Fluentd](http://fluentd.org)
 
 ## Component
-KeyPickerOutput
+
+* KeyPickerFilter
+* KeyPickerOutput
 
 Take a record and pick only the keys you want to pass
 
-## wat?!
+## KeyPickerFilter
+
+### wat?!
+
+```
+<filter test.**>
+  type key_picker
+  keys           foo, baz
+</filter>
+```
+
+And you feed such a value into fluentd:
+
+```
+"test" => {
+  "foo" => "a",
+  "bar" => "b",
+  "baz" => "c",
+  "bah" => "e",
+}
+```
+
+Then you'll get filtered tags/records like so:
+
+```
+"picked.test" => {
+  "foo" => "a",
+  "baz" => "c"
+}
+```
+
+### Configuration
+
+#### keys
+
+`keys` should include the keys you want to pick.
+
+## KeyPickerOutput
+
+### wat?!
 
 ```
 <match test.**>
@@ -35,18 +76,17 @@ Then you'll get re-emmited tags/records like so:
 }
 ```
 
-## Configuration
+### Configuration
 
-### keys
+#### keys
 
 `keys` should include the keys you want to pick.
 
-### remove_tag_prefix, remove_tag_suffix, add_tag_prefix, add_tag_suffix
+#### remove_tag_prefix, remove_tag_suffix, add_tag_prefix, add_tag_suffix
 
 These params are included from `Fluent::HandleTagNameMixin`. See the code for details.
 
 You must add at least one of these params.
-
 
 ## Installation
 
